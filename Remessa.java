@@ -1,10 +1,15 @@
 
 public class Remessa {
-	private Vaca[] container;
+	Vaca[] container;
 	private float pesoMedio;
 	private int quantidadeTransportado = 0;
 	private float pesoTotal = 0;
-	
+	public Remessa() {
+		container = new Vaca[50];
+		for (int i =0;i<50;i++) {
+			this.container[i] = null;
+		}
+	}
 	public void setContainer(Vaca[] vacas) {
 		this.container = vacas;
 	}

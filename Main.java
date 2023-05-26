@@ -15,34 +15,35 @@ class Main{
     	/*eu sei que poderia ter chamado de curral, mas 
    			não tive essa ideia antes
     	 */
-    	fazenda1.container = new Vaca[50];
+    	
     
     	//populando a fazenda 1 com vacas
     	for (int i=0;i<50;i++) {
             //fazenda1.container[i] = new Vaca(random.nextFloat()*(500-160)+160);
             fazenda1.container[i] = new Vaca(random.nextFloat()*(500-400)+400);
         }
-    	System.out.println("---------end of creation-------");
-    	//criando o curral da fazenda dois
-    	fazenda2.container = new Vaca[50];
+    	int contador = 0;
+    	
     	
     	
     	//create first farm
-        int contador =0;
+      
+        Remessa remessa = new Remessa();
+       
         while (contador<50) {
-        	Remessa remessa = new Remessa();
-        	remessa.setContainer(new Vaca[50]);
-        	remessa.setContainer(caminhao.makeRemessa(fazenda1.container));
-        	fazenda2.addVacas(remessa.getContainer());
+        	//vamos reunir as vacas umas perto das outras
+        	Vaca[] vacas = caminhao.makeRemessa(fazenda1.container);
+        	fazenda1.cleanRepeated(fazenda2);
+        	fazenda2.addVacas(vacas);
+        	
         	//////////TRANSPORTANDO VACAS///////////////////////////
-        	for (int i =0;i<50;i++) {
+        	for (int i =contador;i<50;i++) {
         		if (fazenda2.container[i]!=null) {
-        			fazenda1.container[i]=null;//apagamos a vaca que saiu da fazenda 1
-        			System.out.printf("%.1f\n",fazenda2.container[i].peso);
+        			System.out.println(fazenda2.container[i].peso);
         			contador++;
         		}
-        	
         	}
+        	remessa.container = vacas;
         	//////////////////////////////////////////////////////////
         	
         	
@@ -55,4 +56,5 @@ class Main{
         System.out.println("Foram feitas "+caminhao.viagens+" viagens");
         
     }
+    
 }
