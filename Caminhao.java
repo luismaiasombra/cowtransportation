@@ -1,19 +1,19 @@
-package mainPackage;
 
 public class Caminhao {
 	
     private String tipo;
     public int vacasTransportadas = 0;
-    
+    public int viagens = 0;
+
     public Vaca[] makeRemessa(Vaca[] vacas) {
     
     	float soma = 0;
-    	Vaca[] remessa = new Vaca[40];
+    	Vaca[] remessa = new Vaca[50];
     	float media = 0;
     	float nextMedia = 0;
     	int tamanhoRemessa = 0;
     	int[] numeroMaximo = new int[] {40,35,30,25,20,18,16};
-    	for (int i = this.vacasTransportadas;i<40;i++) {
+    	for (int i = this.vacasTransportadas;i<50;i++) {
     		nextMedia = (soma+vacas[i].peso)/(i+2);
     		if (nextMedia<200 && tamanhoRemessa+1<40) {
     			remessa[i] = vacas[i];
@@ -62,6 +62,7 @@ public class Caminhao {
     		}
     		
     	}
+		viagens++;
     	return remessa;
     }
 }
