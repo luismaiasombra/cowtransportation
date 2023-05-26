@@ -1,4 +1,3 @@
-package mainPackage;
 
 public class Remessa {
 	private Vaca[] container;
@@ -27,23 +26,17 @@ public class Remessa {
 		return soma;
 	}
 	public float getPesoMedio() {
-		float pesoTotal=0;
-		for (int i =0;i<container.length;i++) {
-			if (container[i]!=null) {
-				pesoTotal+=container[i].peso;
-			}
-		}
-		return pesoTotal/this.getQuantidadeTransportado();
+    	return this.getPesoTotal() / (float) this.getQuantidadeTransportado();
 	}
 	public Vaca[] getContainer() {
 		return this.container;
 	}
 	public int getQuantidadeTransportado() {
+		quantidadeTransportado = 0;
 		for (int i =0;i<container.length;i++) {
 			if (container[i]!=null) {
 				quantidadeTransportado++;
 			}
-			
 		}
 		return quantidadeTransportado;
 	}

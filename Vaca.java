@@ -1,5 +1,3 @@
-package mainPackage;
-
 
 public class Vaca  {
 	public int numeroVacas = 0;

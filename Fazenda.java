@@ -1,4 +1,3 @@
-package mainPackage;
 class Fazenda{
 	int numeroVacas;
     public Vaca[] container;
